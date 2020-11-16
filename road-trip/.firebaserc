@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "road-trip-3d884": {
+      "hosting": {
+        "app": [
+          "road-trip-3d884"
+        ]
+      }
+    }
+  }
+}

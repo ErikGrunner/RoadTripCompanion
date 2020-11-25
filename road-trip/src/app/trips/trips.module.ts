@@ -8,12 +8,13 @@ import { TripsPageRoutingModule } from './trips-routing.module';
 
 import { TripsPage } from './trips.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TripsPageRoutingModule
+    TripsPageRoutingModule,
   ],
   declarations: [TripsPage]
 })

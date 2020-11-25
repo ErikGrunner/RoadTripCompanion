@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Map',
-      url: '/folder/map/map.component',
+      url: './folder/map/map-box/',
       icon: 'compass'
     },
     {

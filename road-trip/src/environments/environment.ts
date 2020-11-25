@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   mapbox: {
-    accessToken: 'pk.eyJ1IjoiZXJpa2dydW5uZXIiLCJhIjoiY2tna3AzczUzMDlrbTJycGN5anA5MXU3cSJ9.McUo-JRWwttUABRqDviLBw'
+    accessToken: 'pk.eyJ1IjoiZXJpa2dydW5uZXIiLCJhIjoiY2toa3NvbDNuMDY2aDM0cnQxZnZ3ZnZ4aSJ9.XwSIPlY0ShmP2GTadsvLHQ'
   }
 }
 

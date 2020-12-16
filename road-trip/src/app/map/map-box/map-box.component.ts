@@ -27,10 +27,10 @@ export class MapBoxComponent implements OnInit{
 
   ngOnInit() {
     this.markers = this.mapService.getMarkers()
-    this.initializeMap()
+    this.initialiseMap()
   }
 
-  private initializeMap() {
+  private initialiseMap() {
     /// locate the user
     if (navigator.geolocation) {
        navigator.geolocation.getCurrentPosition(position => {
@@ -55,7 +55,6 @@ export class MapBoxComponent implements OnInit{
     });
 
 
-    /// Add map controls
     this.map.addControl(new mapboxgl.NavigationControl());
 
 

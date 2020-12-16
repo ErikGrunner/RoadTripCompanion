@@ -14,6 +14,22 @@ const routes: Routes = [
   {
     path: 'trips',
     loadChildren: () => import('./trips/trips.module').then( m => m.TripsPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'favourites',
+    loadChildren: () => import('./favourites/favourites.module').then( m => m.FavouritesPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'help',
+    loadChildren: () => import('./help/help.module').then( m => m.HelpPageModule)
   }
 
 ];

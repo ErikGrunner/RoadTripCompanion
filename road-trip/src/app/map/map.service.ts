@@ -9,7 +9,8 @@ import * as mapboxgl from 'mapbox-gl';
 export class MapService {
 
   constructor(private db: AngularFireDatabase) {
-    mapboxgl.accessToken = environment.mapbox.accessToken
+    //mapboxgl.accessToken = environment.mapbox.accessToken
+
   }
 
 

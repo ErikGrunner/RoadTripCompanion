@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
+    path: 'map',
+    loadChildren: () => import('./map/map-box/map-box.component').then( m => m.MapBoxComponent)
+  },
+  {
     path: 'trips',
     loadChildren: () => import('./trips/trips.module').then( m => m.TripsPageModule)
   },

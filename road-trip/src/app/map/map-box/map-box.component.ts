@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { MapService } from '../map.service';
 import { GeoJson, FeatureCollection } from '../map';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -48,6 +49,7 @@ export class MapBoxComponent implements OnInit{
 
   buildMap() {
     this.map = new mapboxgl.Map({
+      accessToken: environment.mapbox.accessToken,
       container: 'map',
       style: this.style,
       zoom: 13,
@@ -119,7 +121,7 @@ export class MapBoxComponent implements OnInit{
 
   flyTo(data: GeoJson) {
     this.map.flyTo({
-      center: data.geometry.coordinates
+      //center: data.geometry.coordinates
     })
   }
 }

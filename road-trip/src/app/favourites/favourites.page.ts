@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class FavouritesPage implements OnInit {
 
   constructor() { }
+  ngOnInit(): void {
 
-  ngOnInit() {
   }
 
 }

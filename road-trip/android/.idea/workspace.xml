@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="639db646-c45f-4c21-a454-a84f34122a55" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Recommender/recommender_server/recommender/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Recommender/recommender_server/recommender/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Recommender/recommender_server/recommender_server/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Recommender/recommender_server/recommender_server/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ionic.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ionic.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/favourites/favourites.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/favourites/favourites.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/favourites/favourites.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/favourites/favourites.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/map/map-box/map-box.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/map/map-box/map-box.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/navigation/navigation.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/navigation/navigation.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/services/reccomender/reccomender.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/reccomender/reccomender.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/trips/create-trip/create-trip.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/trips/create-trip/create-trip.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/trips/create-trip/create-trip.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/trips/create-trip/create-trip.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/trips/create-trip/create-trip.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/trips/create-trip/create-trip.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/trips/trips.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/trips/trips.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1nyD2vY79iWCs8kY7PY82y6uE6f" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="639db646-c45f-4c21-a454-a84f34122a55" name="Default Changelist" comment="" />
+      <created>1612353233084</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612353233084</updated>
+    </task>
+    <servers />
+  </component>
+</project>

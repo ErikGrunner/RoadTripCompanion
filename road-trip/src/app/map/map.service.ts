@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef ,Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
@@ -9,8 +9,10 @@ import * as mapboxgl from 'mapbox-gl';
 export class MapService {
 
   constructor(private db: AngularFireDatabase) {
-     //mapboxgl.accessToken  = environment.mapbox.accessToken
+    //mapboxgl.accessToken = environment.mapbox.accessToken
+
   }
+
 
   getMarkers(): AngularFireList<any> {
     return this.db.list('/markers')

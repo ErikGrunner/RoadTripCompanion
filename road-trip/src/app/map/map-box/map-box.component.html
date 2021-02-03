@@ -1,18 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title></ion-title>
+    <ion-title>profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <input type="text" [(ngModel)]="message" placeholder="your message...">
-<h1>Markers</h1>
-<div *ngFor="let marker of markers | async">
-  <button (click)="flyTo(marker)">{{ marker.properties.message }}</button>
-  <button (click)="removeMarker(marker)">Delete</button>
-</div>
-
-<div class="map" id="map"></div>
+  <ion-input placeholder="Enter Username"></ion-input>
+  <ion-input placeholder="Enter Password"></ion-input>
+  <ion-button expand="block" fill="outline">Login</ion-button>
+  <ion-button expand="block" fill="outline">Sign-up</ion-button>
 </ion-content>
 
-
+<div class="map" id="map">hello</div>

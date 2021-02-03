@@ -13,6 +13,7 @@ export class FavouritesPage implements OnInit {
   export = null;
   newFeature = 'new feature';
 
+<<<<<<< HEAD
   constructor(private route: ActivatedRoute, private databaseService: DatabaseService) { }
   /*ngOnInit(): void {
     throw new Error('Method not implemented.');
@@ -55,7 +56,16 @@ export class FavouritesPage implements OnInit {
   // For testing..
   deleteDatabase() {
     this.databaseService.deleteDatabase();
+=======
+  constructor() { }
+
+  ngOnInit() {
+>>>>>>> parent of 8dd5d1b... django server
   }
 }
 
+<<<<<<< HEAD
   
+=======
+}
+>>>>>>> parent of 8dd5d1b... django server

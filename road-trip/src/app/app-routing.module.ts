@@ -34,6 +34,7 @@ const routes: Routes = [
   {
     path: 'help',
     loadChildren: () => import('./help/help.module').then( m => m.HelpPageModule)
+<<<<<<< HEAD
   },
   {
     path: 'navigation',
@@ -43,12 +44,15 @@ const routes: Routes = [
     path: 'feature/:id',
     loadChildren: () => import('./favourites/favourites.module').then( m => m.FavouritesPageModule)
   },
+=======
+  }
+>>>>>>> parent of 8dd5d1b... django server
 
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' })
   ],
   exports: [RouterModule]
 })

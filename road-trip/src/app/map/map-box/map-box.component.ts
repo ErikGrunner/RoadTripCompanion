@@ -12,7 +12,6 @@ import { environment } from 'src/environments/environment';
 })
 export class MapBoxComponent implements OnInit{
 <<<<<<< HEAD
-<<<<<<< HEAD
   static ionViewDidEnter() {
     this.buildMap()
   }
@@ -235,8 +234,6 @@ export class MapBoxComponent implements OnInit{
 
 =======
 >>>>>>> parent of 8dd5d1b... django server
-=======
->>>>>>> parent of 8dd5d1b... django server
 
   /// default settings
   map: mapboxgl.Map;
@@ -268,19 +265,11 @@ export class MapBoxComponent implements OnInit{
         })
       });
     }
-<<<<<<< HEAD
 
     this.buildMap()
 
   }
 
-=======
-
-    this.buildMap()
-
-  }
-
->>>>>>> parent of 8dd5d1b... django server
   buildMap() {
     this.map = new mapboxgl.Map({
       accessToken: environment.mapbox.accessToken,

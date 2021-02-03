@@ -49,14 +49,9 @@
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
 <<<<<<< HEAD
-<<<<<<< HEAD
     "@types/mapbox-gl": "^2.0.2",
     "@types/node": "^12.19.14",
     "@types/sqlite3": "^3.1.7",
-=======
-    "@types/mapbox-gl": "^2.0.0",
-    "@types/node": "^12.11.1",
->>>>>>> parent of 8dd5d1b... django server
 =======
     "@types/mapbox-gl": "^2.0.0",
     "@types/node": "^12.11.1",

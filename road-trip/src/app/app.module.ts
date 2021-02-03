@@ -9,12 +9,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+<<<<<<< HEAD
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
+=======
+>>>>>>> parent of 8dd5d1b... django server
 
 
 @NgModule({

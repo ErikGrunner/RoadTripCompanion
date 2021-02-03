@@ -35,6 +35,7 @@ const routes: Routes = [
     path: 'help',
     loadChildren: () => import('./help/help.module').then( m => m.HelpPageModule)
 <<<<<<< HEAD
+<<<<<<< HEAD
   },
   {
     path: 'navigation',
@@ -45,6 +46,8 @@ const routes: Routes = [
     loadChildren: () => import('./favourites/favourites.module').then( m => m.FavouritesPageModule)
   },
 =======
+=======
+>>>>>>> parent of 8dd5d1b... django server
   }
 >>>>>>> parent of 8dd5d1b... django server
 

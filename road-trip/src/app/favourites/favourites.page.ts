@@ -60,12 +60,19 @@ export class FavouritesPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+<<<<<<< HEAD
+>>>>>>> parent of 8dd5d1b... django server
+=======
 >>>>>>> parent of 8dd5d1b... django server
   }
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   
+=======
+}
+>>>>>>> parent of 8dd5d1b... django server
 =======
 }
 >>>>>>> parent of 8dd5d1b... django server

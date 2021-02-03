@@ -39,6 +39,7 @@ def index(request):
     result = get_recommendations(rec_reqiest, cosine_score, indices, metadata)
     #listOfStr.to_json()
     print(metadata.iloc[result].to_json)
+
     return JsonResponse(json.loads(metadata.iloc[result].to_json(orient='records')), safe=False)
     #return JsonResponse({'foo': 'bar'})
     #return JsonResponse(metadata.iloc[result].to_json().key.slice(2, response.key.length-2), safe=False)
@@ -53,3 +54,15 @@ def get_recommendations(title, cosine_score,indices,metadata):
     print(result)
     #return metadata['title'].iloc[result]
     return result
+
+def get_coords(request):
+    rec_reqiest = request.GET['place']
+    filename = "E:\Documents\GitHub\RoadTrip\Recommender\Include\wikivoyage - Copy - Copy.csv"
+
+    metadata = pd.read_csv(filename, low_memory=False, delimiter=',')
+
+    #metadata.set_index("title", inplace=True)
+    print(metadata.loc[metadata['title'] == rec_reqiest])
+
+    return JsonResponse(json.loads(metadata.loc[metadata['title'] == rec_reqiest].to_json(orient='records')), safe=False)
+    #return JsonResponse(json.loads(metadata.loc[rec_reqiest]), safe=False)

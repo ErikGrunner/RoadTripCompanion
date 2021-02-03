@@ -38,11 +38,7 @@ const routes: Routes = [
   {
     path: 'navigation',
     loadChildren: () => import('./navigation/navigation.module').then( m => m.NavigationPageModule)
-  },
-  {
-    path: 'feature/:id',
-    loadChildren: () => import('./favourites/favourites.module').then( m => m.FavouritesPageModule)
-  },
+  }
 
 ];
 

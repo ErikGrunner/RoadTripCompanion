@@ -14,12 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
-
-
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,8 +22,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    FormsModule,
-        ReactiveFormsModule
 
   ],
   providers: [

@@ -16,14 +16,19 @@ export class ReccomenderService {
     console.log('Json REtrieval setup');
     
 }
-getRemoteData(place){
-  //place = JSON.stringify(place)
+getRemoteData(){
+
+  return this.http.get(this.baseUrl +'index?place=Kruithuis').pipe(map(res => res));
+ /* this.places =
+  this.http.get(this.baseUrl +'index?place=Kruithuis');
+    this.places
+    .subscribe(data => {
+      console.log('my data: ', data);})
+ // this.http
+  //.get( this.baseUrl +'index?place=Kruithuis').pipe(map(res => res))
+  //.subscribe(data =>{ console.log(data);});
   
-  return this.http.get(this.baseUrl +'index?place='+ place).pipe(map(res => res));
- 
-}
-getCoords(place){
-  return this.http.get(this.baseUrl +'coords?place='+ place).pipe(map(res => res));
+  */
 }
 }
 

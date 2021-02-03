@@ -1,28 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { CreateTripPageRoutingModule } from './create-trip-routing.module';
 
 import { CreateTripPage } from './create-trip.page';
-import { ReccomenderService } from 'src/app/services/reccomender/reccomender.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule,
     FormsModule,
     IonicModule,
-    CreateTripPageRoutingModule,
-
-    ReactiveFormsModule
+    CreateTripPageRoutingModule
   ],
-  declarations: [CreateTripPage],
-  providers: [
-    ReccomenderService
-  ],
+  declarations: [CreateTripPage]
 })
 export class CreateTripPageModule {}

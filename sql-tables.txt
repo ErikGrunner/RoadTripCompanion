@@ -1,4 +1,0 @@
-create table login(userid integer primary key, password text, username text);
-create table profile(userid integer primary key, featureref integer);
-create table featureref(featureref integer primary key, date date,like boolean,userid integer, featureid integer);
-create table mapfeature(article text, type text, alt text, wikidata text, address text, directions text, phone text, tollfree text, email text, fax text, url text, hours text, checkin text, checkout text, image text, price float, latitude float, longitude float, wifi text, accessibility text, lastedit date, description text);

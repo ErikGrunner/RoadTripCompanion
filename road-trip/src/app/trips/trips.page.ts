@@ -8,10 +8,8 @@ import { PreloadAllModules, Router, RouterModule, Routes } from '@angular/router
 })
 export class TripsPage implements OnInit {
 
-  constructor(public router:Router) { }
-  gotoCreateTrip() {
-    this.router.navigateByUrl('create-trip');
-  }
+  constructor() { }
+
   ngOnInit() {
   }
 

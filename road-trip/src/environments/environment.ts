@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-
+  firebase: {
+    apiKey: "AIzaSyBpQugMuyU0ar-baz3D5sW481G3eVjBRCQ",
+  authDomain: "road-trip-3d884.firebaseapp.com",
+  databaseURL: "https://road-trip-3d884.firebaseio.com",
+  projectId: "road-trip-3d884",
+  storageBucket: "road-trip-3d884.appspot.com",
+  messagingSenderId: "879914603895",
+ 
+  },
   mapbox: {
     accessToken: 'pk.eyJ1IjoiZXJpa2dydW5uZXIiLCJhIjoiY2toa3NvbDNuMDY2aDM0cnQxZnZ3ZnZ4aSJ9.XwSIPlY0ShmP2GTadsvLHQ'
   }

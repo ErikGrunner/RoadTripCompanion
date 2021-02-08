@@ -14,20 +14,38 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from'@angular/fire/auth'
+import { environment } from '../environments/environment';
+//import { AngularFirestoreModule } from 'angularfire2/firestore';
+ 
+
+
+
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     HttpClientModule,
     IonicModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    //AngularFirestoreModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ReccomenderService
+    
   ],
   bootstrap: [AppComponent]
 })

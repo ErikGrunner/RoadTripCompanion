@@ -12,13 +12,17 @@ import { map, catchError } from 'rxjs/operators';
 export class ReccomenderService {
   baseUrl:string = "http://localhost:8000/";
   places: Observable<any>;
+
   constructor(public http: HttpClient) {
     console.log('Json REtrieval setup');
     
 }
-getRemoteData(){
 
-  return this.http.get(this.baseUrl +'index?place=Kruithuis').pipe(map(res => res));
+getRemoteData(place){
+    //place = JSON.stringify(place)
+    
+  //return this.http.get(this.baseUrl +'index?place='+ place).pipe(map(res => res));
+  //return this.http.get(this.baseUrl +'index?place=Kruithuis').pipe(map(res => res));
  /* this.places =
   this.http.get(this.baseUrl +'index?place=Kruithuis');
     this.places
@@ -29,6 +33,9 @@ getRemoteData(){
   //.subscribe(data =>{ console.log(data);});
   
   */
+}
+getCoords(place){
+  return this.http.get(this.baseUrl +'coords?place='+ place).pipe(map(res => res));
 }
 }
 

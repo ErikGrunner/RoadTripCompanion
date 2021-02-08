@@ -1,5 +1,7 @@
 {
   "name": "Road Trip",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

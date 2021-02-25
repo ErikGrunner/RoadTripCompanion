@@ -18,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from'@angular/fire/auth'
+import { AngularFireDatabaseModule} from '@angular/fire/database'
+import {AngularFirestoreModule} from '@angular/fire/firestore'
 import { environment } from '../environments/environment';
 //import { AngularFirestoreModule } from 'angularfire2/firestore';
  
@@ -35,7 +37,8 @@ import { environment } from '../environments/environment';
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    //AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule

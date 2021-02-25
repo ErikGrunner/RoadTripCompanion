@@ -17,6 +17,8 @@ export class MapService {
   }
 
   createMarker(data: GeoJson) {
+
+    
     return this.db.list('/markers')
                   .push(data)
   }

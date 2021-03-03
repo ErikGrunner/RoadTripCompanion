@@ -4,9 +4,76 @@ import json
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
+import firebase_admin
+from firebase_admin import credentials, firestore
 CORS_ORIGIN_ALLOW_ALL = True
 
+
+def populate_db(test):
+    cred = credentials.Certificate("E:\Documents\GitHub\RoadTrip\Recommender\Include\\road-trip-3d884-firebase-adminsdk-5gfbh-af385cd233.json")
+    firebase_admin.initialize_app(cred)
+    datab = firestore.client()
+    usersref = datab.collection(u'features')
+    docs = usersref.stream()
+    for doc in docs:
+        print('{} : {}'.format(doc.id, doc.to_dict()))
+
+    filename = "E:\Documents\GitHub\RoadTrip\Recommender\Include\wikivoyage - Copy.csv"
+
+    metadata = pd.read_csv(filename, low_memory=False, delimiter=',')
+    for i in range(len(metadata)):
+        print(metadata.loc[i, 'title'])
+        doc_ref = datab.collection(u'features').document(u'ID' + str(i))
+        doc_ref.set({
+            u'accessibility': metadata.loc[i, 'accessibility'],
+            u'address': metadata.loc[i, 'address'],
+            u'alt': metadata.loc[i, 'alt'],
+            u'article': metadata.loc[i, 'article'],
+            u'checkIn': metadata.loc[i, 'checkIn'],
+            u'checkOut': metadata.loc[i, 'checkOut'],
+            u'description': metadata.loc[i, 'description'],
+            u'directions': metadata.loc[i, 'directions'],
+            u'email': metadata.loc[i, 'email'],
+            u'fax': metadata.loc[i, 'fax'],
+            u'hours': metadata.loc[i, 'hours'],
+            u'image': metadata.loc[i, 'image'],
+            u'lastEdit': metadata.loc[i, 'lastEdit'],
+            u'latitude': metadata.loc[i, 'latitude'],
+            u'longitude': metadata.loc[i, 'longitude'],
+            u'phone': metadata.loc[i, 'phone'],
+            u'price': metadata.loc[i, 'price'],
+            u'title': metadata.loc[i, 'title'],
+            u'tollFree': metadata.loc[i, 'tollFree'],
+            u'type': metadata.loc[i, 'type'],
+            u'url': metadata.loc[i, 'url'],
+            u'wifi': metadata.loc[i, 'wifi'],
+            u'wikidata': metadata.loc[i, 'wikidata'],
+            u'wikipedia': metadata.loc[i, 'wikipedia'],
+        })
+
+    return JsonResponse(json.loads("done"), safe=False)
 # Create your views here.
+def recommend_coords(request,lat,long):
+    rec_reqiest = request.GET['place']
+    filename = "E:\Documents\GitHub\RoadTrip\Recommender\Include\wikivoyage - Copy - Copy.csv"
+
+
+    metadata = pd.read_csv(filename, low_memory=False, delimiter=',')
+
+
+
+    tfidf = TfidfVectorizer(stop_words='english')
+    metadata['description'] = metadata['description'].fillna('')
+    tfidf_matrix = tfidf.fit_transform(metadata['description'])
+    tfidf.get_feature_names()[5000:5010]
+    cosine_score = linear_kernel(tfidf_matrix, tfidf_matrix)
+
+    indices = pd.Series(metadata.index, index=metadata['title']).drop_duplicates()
+    result = get_recommendations(rec_reqiest, cosine_score, indices, metadata)
+
+    print(metadata.iloc[result].to_json)
+    return JsonResponse(json.loads(metadata.iloc[result].to_json(orient='records')), safe=False)
+
 def recommend(request):
     rec_reqiest = request.GET['place']
     filename = "E:\Documents\GitHub\RoadTrip\Recommender\Include\wikivoyage - Copy - Copy.csv"

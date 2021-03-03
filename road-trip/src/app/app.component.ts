@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Navigation',
       url: './navigation/',
+      //url: './map/map-box/',
       icon: 'compass'
     },
     {

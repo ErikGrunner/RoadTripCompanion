@@ -5,10 +5,13 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { GeoJson } from './map';
 import * as mapboxgl from 'mapbox-gl';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MapService {
 
   constructor(private db: AngularFireDatabase) {
+    Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set(environment.mapbox.accessToken);
      //mapboxgl.accessToken  = environment.mapbox.accessToken
   }
 

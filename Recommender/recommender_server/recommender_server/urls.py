@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from recommender.views import recommend,get_feature
+from recommender.views import recommend, get_feature, populate_db
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('recommend',recommend),
-    path('feature',get_feature),
+    path('recommend', recommend),
+    path('feature', get_feature),
+    path('populate', populate_db),
 ]
 CORS_ORIGIN_ALLOW_ALL = True

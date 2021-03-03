@@ -11,18 +11,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ReccomenderService } from './services/reccomender/reccomender.service';
 import { HttpClientModule } from '@angular/common/http';
-
-
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from'@angular/fire/auth'
 import { AngularFireDatabaseModule} from '@angular/fire/database'
 import {AngularFirestoreModule} from '@angular/fire/firestore'
 import { environment } from '../environments/environment';
-//import { AngularFirestoreModule } from 'angularfire2/firestore';
- 
+import { MapBoxComponent } from './map/map-box/map-box.component';
 
 
 
@@ -41,13 +36,14 @@ import { environment } from '../environments/environment';
     AngularFirestoreModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ReccomenderService
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },ReccomenderService,MapBoxComponent,
     
   ],
   bootstrap: [AppComponent]

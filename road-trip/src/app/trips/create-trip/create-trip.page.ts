@@ -13,8 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./create-trip.page.scss'],
 })
 export class CreateTripPage implements OnInit {
-  places: Observable<any>
-  coords: Observable<any>
+  places: Object
+  coords: Object
   private title: string;
   isSubmitted = false;
   ionicForm: FormGroup;
@@ -34,7 +34,8 @@ export class CreateTripPage implements OnInit {
   submitForm() {
     this.isSubmitted = true;
     console.log(this.ionicForm.get('search').value)
-    console.log(this.ReccomenderService.getRemoteData(this.ionicForm.get('search').value).subscribe(res=>this.places=res,res =>{ console.log(res);}));
+    console.log(this.ReccomenderService.getRemoteData(this.ionicForm.get('search').value).then(res=>this.places=res,data => console.log(data)))
+    //.subscribe(res=>this.places=res,res =>{ console.log(res);}));
   }
   get errorControl() {
     return this.ionicForm.controls;

@@ -27,7 +27,8 @@ export class ReccomenderService {
 getRemoteData(place){
     //place = JSON.stringify(place)
     
-  return this.http.get(this.baseUrl +'recommend?place='+ place).pipe(map(res => res));
+    return this.http.get(this.baseUrl +'recommend?place='+ place).toPromise().then(res => res);
+    //return this.http.get(this.baseUrl +'recommend?place='+ place).pipe(map(res => res));
   //return this.http.get(this.baseUrl +'index?place=Kruithuis').pipe(map(res => res));
  /* this.places =
   this.http.get(this.baseUrl +'index?place=Kruithuis');

@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage
+  },  {
+    path: 'train',
+    loadChildren: () => import('./train/train.module').then( m => m.TrainPageModule)
   }
+
 ];
 
 @NgModule({

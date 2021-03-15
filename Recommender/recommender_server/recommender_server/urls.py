@@ -15,12 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from recommender.views import recommend, get_feature, populate_db
+from django.conf.urls import url, include
+
+from recommender import views
+from recommender.views import recommend, get_feature, populate_db,recommend_coords,callback, recommend_Multi
 
 
 urlpatterns = [
+    url(r'^callback$', view=callback, name='callback'),
     path('admin/', admin.site.urls),
     path('recommend', recommend),
+    path('recommendMulti', recommend_Multi),
+    path('recommendCord', recommend_coords),
     path('feature', get_feature),
     path('populate', populate_db),
 ]

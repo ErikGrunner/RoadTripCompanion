@@ -23,7 +23,9 @@ export class ReccomenderService {
     console.log('Json REtrieval setup');
     
 }
-
+getProfileRecs(){
+  return this.http.get(this.baseUrl +'recommendMulti?place=Kruithuis').toPromise().then(res => res);
+}
 getRemoteData(place){
     //place = JSON.stringify(place)
     
@@ -78,7 +80,7 @@ getCoords(place){
     wikipedia: data[0].wikipedia,
   })
   });
-  console.log("before firestore")
+  //console.log("before firestore")
   //this.fireS.collection('features/')
   //.add(data)
   //this.fireS.collection('features').add(this.places)

@@ -45,7 +45,7 @@ export class MapBoxComponent implements OnInit {
     var map = new mapboxgl.Map({
       accessToken: environment.mapbox.accessToken,
       style: "mapbox://styles/mapbox/streets-v10",
-      //center: [-6.3066, 53.3135],
+      center: [-6.3066, 53.3135],
       zoom: 16,
       pitch: 80,
       minZoom: 5, //restrict map zoom - buildings not visible beyond 13
@@ -244,7 +244,7 @@ export class MapBoxComponent implements OnInit {
                 geometry: {
                   type: "LineString",
                   coordinates: geojson,
-                },
+                }, 
               },
             },
             layout: {
@@ -291,24 +291,10 @@ export class MapBoxComponent implements OnInit {
                 else
                 {
                   recArr.push(i.target.id)
-                  console.log("rec  "+recArr[0])
+                  console.log("rec  "+i.target.id)
                 }
         };
       }
-      document
-        .getElementById("listing-group")
-        .addEventListener("change", function (e) {
-          var handler = e.target.id;
-          console.log(e.target);
-          if (handler == "start") {
-            //console.log("radio start");
-            select = "start";
-          }
-          if (handler == "end") {
-            //console.log("radio end");
-            select = "end";
-          }
-        });
 
       map.addLayer({
         id: "mid",

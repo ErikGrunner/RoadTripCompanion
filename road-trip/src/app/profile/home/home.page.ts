@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+import { AngularFireStorage } from '@angular/fire/storage'
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireDatabase } from '@angular/fire/database';
+
 
 @Component({
   selector: 'app-home',
@@ -11,75 +11,59 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
-  tasks: any = [];
-
-
+  user: any = {};
   constructor(
     private auth: AngularFireAuth,
-    private router: Router,
-    private afFirestore: AngularFirestoreModule,
-    private alertCtrl: AlertController
+    private afStorage: AngularFireStorage,
+    private afDB: AngularFireDatabase,
   ) { }
 
 
-  add() {
-    this.alertCtrl.create({
-      message: "task",
-      inputs: [
-        { type: 'text', name: 'title' },
-        { type: 'textarea', name: 'desc' }
-      ],
-      buttons: [
-        {
-          text: 'Add', handler: (res) => {
-            console.log(res);
+  ngOnInit() {
+    /*console.log(this.auth.currentUser.then((user) => {
+      return user.uid
+    }).then((result) => {
+      return result;
+    }).then((res)=>{console.log(res)}));*/
 
-            this.afFirestore.collection(this.auth.auth.currentUser.uid).add({
-              title: res.title,
-              desc: res.desc,
-              createdAt: Date.now(),
-              isDone: false
-            });
+    this.auth.currentUser.then((user) => {
+      return user.uid
+    }).then((uid) => {
 
-          }
-        }, {
-          text: 'Cancel'
-        }
-      ]
-    }).then(a => a.present());
-  }
-
-
-  fetch() {
-    this.afFirestore.collection(this.auth.auth.currentUser.uid).snapshotChanges().subscribe((res: any) => {
-      console.log(res);
-      let tmp = [];
-      res.forEach(task => {
-        tmp.push({ key: task.payload.doc.id, ...task.payload.doc.data() });
-      })
-      console.log(tmp);
-      this.tasks = tmp;
+    this.afDB.object('users/' + uid).snapshotChanges().subscribe((usersnap: any) => {
+      this.user = { 'key': usersnap.key, ...usersnap.payload.val() }
     })
+
+  })
+
+
   }
 
 
-  update(id, isDone) {
-    this.afFirestore.collection(this.auth.auth.currentUser.uid).doc(id).update({
-      isDone: !isDone
-    });
-  }
+  upload() {
+    let file = document.getElementById("avatar").files[0];
+    let ref = this.afStorage.ref('upload/' + this.auth.currentUser + '/' + file.name);
 
-  delete(id) {
-    this.afFirestore.collection(this.auth.auth.currentUser.uid).doc(id).delete();
-  }
+    ref.put(file).then(res => {
 
-  logout() {
-    this.auth.signOut().then(() => {
-      this.router.navigateByUrl('/profile');
+      ref.getDownloadURL().subscribe(url => {
+
+        this.user.imgURL = url;
+
+      });
+
     }).catch(e => {
       console.log(e);
     })
+
   }
+
+  update() {
+    this.auth.currentUser.then((user) => {
+      return user.uid
+    }).then((uid) => {
+    this.afDB.object('users/' + uid).update(this.user)
+  }
+  )}
 
 }

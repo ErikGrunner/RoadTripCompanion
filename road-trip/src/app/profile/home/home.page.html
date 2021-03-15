@@ -1,33 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>home</ion-title>
-    <ion-buttons slot="end">
-      <ion-button routerLink="/profile">
-        <ion-icon name="person-circle-outline"></ion-icon>
-      </ion-button>
-      <ion-button (click)="logout()">Logout</ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-button (click)="add()">Add</ion-button>
-  <ion-button (click)="fetch()">Fetch</ion-button>
-
-  <ion-list *ngIf="tasks.length !=0 ">
-    <ion-item *ngFor="let item of tasks">
-      <ion-label>
-        <h3>{{item.title}}</h3>
-        <p>{{item.desc}}</p>
-      </ion-label>
-      <ion-buttons slot="end">
-        <ion-button (click)="update(item.key, item.isDone)">
-          <ion-icon color="{{ item.isDone ? 'success' : 'dark'}}" name="checkbox-outline"></ion-icon>
-        </ion-button>
-        <ion-button (click)="delete(item.key)">
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-item>
-  </ion-list>
+<ion-content>
+  <input type="file" id="avatar" (change)="upload()" />
+  <ion-item>
+    <ion-label>
+      Name
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      Email
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+  <ion-button (click)="update()">Update</ion-button>
+  <ion-button expand="block" fill="outline" href="/profile/home/train">Train </ion-button>
 </ion-content>

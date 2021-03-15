@@ -6,19 +6,36 @@
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
 <ion-content>
-  <nav id="listing-group" class="listing-group">
 
-    <input type="radio" id="start" name="group">
-    <ion-label for="start">Start</ion-label>
-    <input type="radio" id="end" name="group">
-    <ion-label for="end">End</ion-label>
 
-  </nav>
-  
-    <ion-list *ngFor="let item of places"  id ="select_rec">
+
+
+
+  <ion-menu side="end" contentId="main-content" type="overlay">
+    <ion-content>
+      <ion-list-header>Recommendations</ion-list-header>
+      <ion-list *ngFor="let item of places"  id ="select_rec">
+        
+        
+
+        
+        
+            
         <ion-button   id ="{{item.title}}">{{item.title}}</ion-button >
-     </ion-list>
-   
+    
+    </ion-list>
+
+     
+    </ion-content>
+  </ion-menu>
+
+
+  
+
+
+
+
+
 
 <ion-button id='startbutton'>Start</ion-button>
 <ion-button id='endbutton'>Destination</ion-button>

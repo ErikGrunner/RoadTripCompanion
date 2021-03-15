@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { from } from 'rxjs';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { title } from 'process';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.page.html',
@@ -16,7 +17,9 @@ export class NavigationPage implements OnInit {
   coords: Observable<any>
 
 
-  constructor(public MapBox : MapBoxComponent,public ReccomenderService: ReccomenderService) { }
+  constructor(public MapBox : MapBoxComponent,public ReccomenderService: ReccomenderService, private menu: MenuController) { }
+    
+  
   ngOnInit(): void {
     var aArray= []
 
@@ -41,5 +44,6 @@ export class NavigationPage implements OnInit {
   }))
 
   }
+
 
 }

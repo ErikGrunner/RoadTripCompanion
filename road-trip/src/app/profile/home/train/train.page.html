@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>train</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header>Lets train your profile!</ion-header>
+  <ion-header> Do you think you'd like this place?</ion-header>
+  <ion-list *ngIf="places.length !=0 ">
+    <ion-item *ngFor="let item of places| slice:0:1">
+      <ion-label>
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+        <p>{{item.phone}}</p>
+        <p>{{item.email}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="YesOption()">Yes</ion-button>
+  <ion-button>No</ion-button>
+</ion-content>

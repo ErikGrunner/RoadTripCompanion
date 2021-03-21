@@ -23,8 +23,8 @@ export class ReccomenderService {
     console.log('Json REtrieval setup');
     
 }
-getProfileRecs(){
-  return this.http.get(this.baseUrl +'recommendMulti?place=Kruithuis').toPromise().then(res => res);
+getProfileRecs(type){
+  return this.http.get(this.baseUrl +'recommendMulti?type=' + type).toPromise().then(res => res);
 }
 getRemoteData(place){
     //place = JSON.stringify(place)

@@ -42,18 +42,16 @@ def get_distance(lat1x, long1, latx2, long2):
     if math.isnan(distance):
        distance = 10000
     print("Result:", distance)
-    print("Should be:", 278.546, "km")
 
     return distance
 def populate_db(test):
     datab = firestore.client()
-    usersref = datab.collection(u'features')
-    docs = usersref.stream()
-    for doc in docs:
-        print('{} : {}'.format(doc.id, doc.to_dict()))
+    #usersref = datab.collection(u'features')
+    #docs = usersref.stream()
+    #for doc in docs:
+        #print('{} : {}'.format(doc.id, doc.to_dict()))
 
     filename = "E:\Documents\GitHub\RoadTrip\Recommender\Include\wikivoyage - Copy.csv"
-
     metadata = pd.read_csv(filename, low_memory=False, delimiter=',')
 
     #adding constraints
@@ -96,35 +94,6 @@ def populate_db(test):
             except:
                 print("ERROR uploading feature")
 
-    """for i in range(len(metadata)):
-        print(metadata.loc[i, 'title'])
-        doc_ref = datab.collection(u'features').document(u'ID' + str(i))
-        doc_ref.set({
-            u'accessibility': metadata.loc[i, 'accessibility'],
-            u'address': metadata.loc[i, 'address'],
-            u'alt': metadata.loc[i, 'alt'],
-            u'article': metadata.loc[i, 'article'],
-            u'checkIn': metadata.loc[i, 'checkIn'],
-            u'checkOut': metadata.loc[i, 'checkOut'],
-            u'description': metadata.loc[i, 'description'],
-            u'directions': metadata.loc[i, 'directions'],
-            u'email': metadata.loc[i, 'email'],
-            u'fax': metadata.loc[i, 'fax'],
-            u'hours': metadata.loc[i, 'hours'],
-            u'image': metadata.loc[i, 'image'],
-            u'lastEdit': metadata.loc[i, 'lastEdit'],
-            u'latitude': metadata.loc[i, 'latitude'],
-            u'longitude': metadata.loc[i, 'longitude'],
-            u'phone': metadata.loc[i, 'phone'],
-            u'price': metadata.loc[i, 'price'],
-            u'title': metadata.loc[i, 'title'],
-            u'tollFree': metadata.loc[i, 'tollFree'],
-            u'type': metadata.loc[i, 'type'],
-            u'url': metadata.loc[i, 'url'],
-            u'wifi': metadata.loc[i, 'wifi'],
-            u'wikidata': metadata.loc[i, 'wikidata'],
-            u'wikipedia': metadata.loc[i, 'wikipedia'],
-        })"""
 
     return JsonResponse(json.loads("done"), safe=False)
 # Create your views here.
@@ -201,12 +170,14 @@ def recommend(request):
 def recommend_Multi(request):
 
 
-    rec_request = request.GET['place']
+    type = request.GET['type']
     filename = "E:\Documents\GitHub\RoadTrip\Recommender\Include\wikivoyage - Copy - Copy.csv"
 
     metadata = pd.read_csv(filename, low_memory=False, delimiter=',')
     # print(metadata['description'].head(20))
-
+    if type != 'all':
+        metadata = metadata[metadata.type.str.contains(type, na=False)]
+        metadata = metadata.reset_index(drop=True)
     # tfidf = TfidfVectorizer(stop_words='english',max_features=1)
 
     tfidf = TfidfVectorizer(stop_words='english')
@@ -225,34 +196,42 @@ def recommend_Multi(request):
     #print("recommendation: " + get_recommendations(rec_reqiest, cosine_score, indices, metadata))
     #return HttpResponse(get_recommendations('Kruithuis', cosine_score, indices, metadata)+"<br>")
 
-    listOfStr = get_recommendations(rec_request, cosine_score, indices, metadata)
-    result = get_recommendations_multi(rec_request, cosine_score, indices, metadata)
+    result = get_recommendations_multi(cosine_score, indices, metadata)
 
 
     datab = firestore.client()
+    usersdis = datab.collection(u'dislikes')
+    docsdis = usersdis.stream()
     usersref = datab.collection(u'featuresrec')
     docs = usersref.stream()
     finalpd = metadata.iloc[result]
     print("hererye")
     #print(finalpd)
-    for doc in docs:
+    for doc in docs:#to remove likes
         print('{} : {}'.format(doc.id, doc.to_dict()['title']))
         finalpd = finalpd[~finalpd.title.str.contains(doc.to_dict()['title'], na=False)]
         #print(finalpd)
+    for doc in docsdis:#to remove dislikes
+            print('{} : {}'.format(doc.id, doc.to_dict()['title']))
+            finalpd = finalpd[~finalpd.title.str.contains(doc.to_dict()['title'], na=False)]
+
     metadata = finalpd
 
     print(metadata.to_json)
     return JsonResponse(json.loads(metadata.to_json(orient='records')), safe=False)
     #return JsonResponse(json.loads(metadata.iloc[result].to_json(orient='records')), safe=False)
 
-def get_recommendations_multi(title, cosine_score,indices,metadata):
+def get_recommendations_multi( cosine_score,indices,metadata):
 
     datab = firestore.client()
     usersref = datab.collection(u'featuresrec')
     docs = usersref.stream()
     for doc in docs:
         print('{} : {}'.format(doc.id, doc.to_dict()['title']))
-        scoring = list(enumerate(cosine_score[indices[doc.to_dict()['title']]]))
+        try:
+            scoring = list(enumerate(cosine_score[indices[doc.to_dict()['title']]]))
+        except:
+            print("invalid input from database")
 
 
     scoring = sorted(scoring, key=lambda x: x[1], reverse=True)

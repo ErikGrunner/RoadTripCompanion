@@ -6,6 +6,41 @@
 
 <ion-content>
   <ion-header>Lets train your profile!</ion-header>
+
+ 
+  <ion-radio-group (ionChange)="radioGroupChange($event)">
+      <ion-item>
+       <ion-label>Eat</ion-label>
+        <ion-radio value="eat"></ion-radio>
+     </ion-item>
+     <ion-item>
+      <ion-label>Place to drink</ion-label>
+       <ion-radio value="drink"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Places to See</ion-label>
+       <ion-radio value="see"></ion-radio>
+    </ion-item>
+     <ion-item>
+      <ion-label>Places to Stay</ion-label>
+       <ion-radio value="sleep"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Shopping</ion-label>
+       <ion-radio value="buy"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Activities</ion-label>
+       <ion-radio value="do"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Other</ion-label>
+       <ion-radio value="other"></ion-radio>
+    </ion-item>
+    </ion-radio-group> 
+ 
+
+
   <ion-header> Do you think you'd like this place?</ion-header>
   <ion-list *ngIf="places.length !=0 ">
     <ion-item *ngFor="let item of places| slice:0:1">
@@ -14,9 +49,10 @@
         <p>{{item.description}}</p>
         <p>{{item.phone}}</p>
         <p>{{item.email}}</p>
+        <p>{{item.url}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
   <ion-button (click)="YesOption()">Yes</ion-button>
-  <ion-button>No</ion-button>
+  <ion-button (click)="NoOption()">No</ion-button>
 </ion-content>
